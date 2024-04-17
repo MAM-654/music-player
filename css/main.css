@@ -1,109 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300&display=swap');
-body{
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300&display=swap");
+body {
   margin: 0px;
-  background: rgb(4,34,66);
-  background: linear-gradient(45deg, rgba(4,34,66,1) 0%, rgba(10,69,140,1) 20%, rgba(15,104,213,1) 40%, rgba(10,136,225,1) 60%, rgba(6,166,237,1) 80%, rgba(0,212,255,1) 100%); 
+  background: linear-gradient(
+      45deg,
+      rgba(4, 34, 66, 0.5) 0%,
+      rgba(10, 69, 140, 0.5) 20%,
+      rgba(15, 104, 213, 0.5) 40%,
+      rgba(10, 136, 225, 0.5) 60%,
+      rgba(6, 166, 237, 0.5) 80%,
+      rgba(0, 212, 255, 0.5) 100%
+    ),
+    url(../img/bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'League Spartan', sans-serif;
+  font-family: "League Spartan", sans-serif;
 }
-#cover{
+#cover {
   width: 300px;
   height: 300px;
   border-radius: 25px;
   object-fit: cover;
   box-shadow: 0px 10px 20px #000000;
-  
 }
-#player{
-  width: 350px;
-  height: 500px;
-  border: 1px solid black ;
+#player {
+  width: 90%;
+  height: 100%;
+  max-width: 350px;
+  max-height: 500px;
+  border: 1px solid black;
   border-radius: 25px;
-  background-color: #f1f1f1;
+  background: rgba(117, 117, 117, 0.363);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.9px);
+  -webkit-backdrop-filter: blur(3.9px);
+  border: 1px solid rgba(0, 0, 0, 0.82);
+  opacity: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center ;
+  justify-content: center;
   align-items: center;
   box-shadow: 0px 15px 30px #000000;
   position: relative;
+  padding: 25px 10px;
+  margin-top: 30px;
 }
 
-#cover_container{
+#cover_container {
   position: absolute;
-  top:-50px;
+  top: -50px;
   left: 50%;
   transform: translate(-50%);
-  
 }
-#title{
-  margin-top: 250px;
+
+#title {
+  margin-top: 265px;
   margin-bottom: 0px;
   font-size: 30px;
   font-weight: bolder;
+  text-shadow: 0 1px 1px rgb(156, 3, 3);
 }
 
-#artist{
+#artist {
   font-size: 20px;
   margin-top: 10px;
   margin-bottom: 0px;
-  color:#3f3f3f;
+  color: #ababab;
   font-weight: normal;
   font-weight: bold;
+  text-shadow: 0 2px 2px rgb(186, 14, 14);
 }
 
-.progress-container{
+#current-time,
+#duration {
+  color: #ffff;
+  text-shadow: 0 1px 5px rgb(1, 1, 1);
+}
+.progress-container {
   /* background-color: white; */
   cursor: pointer;
   border-radius: 20px;
   margin: 30px auto;
   width: 90%;
 }
-.progressbar{
+.progressbar {
   background-color: white;
   border-radius: 20px;
   border: 1px solid black;
   padding: 0px;
   margin-top: 10px;
 }
-.progress{
+.progress {
   display: flex;
   align-items: stretch;
-  background-color: #000000;
+  background: linear-gradient(to left, rgb(0, 191, 255), rgb(111, 0, 255));
   border-radius: 20px;
   cursor: pointer;
   width: 0%;
   height: 10px;
-  
 }
-.duration-wrapper{
+.duration-wrapper {
   position: relative;
   display: flex;
   justify-content: space-between;
 }
-.player-controlers{
+.player-controlers {
   margin-top: -10px;
 }
-.icon{
+.icon {
   cursor: pointer;
   font-size: 30px;
-  color: #615f5f;
-  margin:0px 10px;
+  color: #fbfbfbbb;
+  margin: 0px 10px;
 }
-.icon:hover{
-  color: #000000;
+.icon:hover {
+  color: #fff;
+  transform: scale(1.2);
 }
-.main{
+.main {
   font-size: 45px;
 }
-.heart{
-  color:red;
+.heart {
+  color: red;
   font-size: 30px;
-  margin : 0px 10px;
+  margin: 0px 10px;
 }
-.heart:hover{
+.heart:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }
-

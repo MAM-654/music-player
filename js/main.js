@@ -1,16 +1,18 @@
+//*-------------- initialize's section --------------*//
+const mainCard = document.getElementById("player");
 const cover = document.getElementById("cover");
 const title = document.getElementById("title");
 const artist = document.getElementById("artist");
 const currentTime = document.getElementById("current-time");
 const totalTime = document.getElementById("duration");
 const music = document.getElementById("music");
+const progressContainer = document.getElementById("progress-container");
+const progress = document.getElementById("progress");
 const shuffleButton = document.getElementById("shuffle");
 const backwardButton = document.getElementById("backward");
 const playButton = document.getElementById("play");
 const forwardButton = document.getElementById("forward");
 const repeatButton = document.getElementById("repeat");
-const progress = document.getElementById("progress");
-const progressContainer = document.getElementById("progress-container");
 const heartButton = document.getElementById("heart");
 
 let shuffleMusic = [];
@@ -22,6 +24,7 @@ let likeState = false;
 let likes = [];
 const likeChecker = [];
 
+//*-------------- songs data --------------*//
 const songs = [
   {
     name: "1",
@@ -50,8 +53,10 @@ const songs = [
   },
 ];
 
+//*-------------- fumction's section --------------*//
+
 function handleShuffle() {
-  shuffleButton.style.color = shuffleState ? "#615f5f" : "#000000";
+  shuffleButton.style.color = shuffleState ? "#fbfbfbbb" : "#000000";
   shuffleState = shuffleState ? false : true;
   const generatedIndex = [];
   if (shuffleState) {
@@ -132,8 +137,6 @@ function nextMusic() {
     songIndex = 0;
   }
   if (likeChecker.includes(songIndex)) {
-    // heartButton.classList.remove("far");
-    // heartButton.classList.add("fas");
     heartButton.classList.replace("far", "fas");
     handleLikes();
   }
@@ -147,10 +150,6 @@ function nextMusic() {
   }
 }
 
-playButton.addEventListener("click", () => {
-  playState ? pauseMusic() : playMusic();
-});
-
 function shuffleModeOn() {
   shuffleState = true;
   shuffleButton.style.color = "black";
@@ -158,7 +157,7 @@ function shuffleModeOn() {
 }
 function shuffleModeOff() {
   shuffleState = false;
-  shuffleButton.style.color = "#615f5f";
+  shuffleButton.style.color = "#fbfbfbbb";
   shuffleButton.title = "Shuffle off";
 }
 
@@ -174,7 +173,7 @@ function handleRepeat() {
     repeatButton.title = "Repeat INFINITY";
   } else if (repeatState === "INFINITY") {
     repeatState = "OFF";
-    repeatButton.style.color = "#615f5f";
+    repeatButton.style.color = "#fbfbfbbb";
     repeatButton.title = "Repeat OFF";
   }
 }
@@ -244,6 +243,12 @@ function removeLikes(element) {
   }
 }
 
+//*-------------- evenet's section --------------*//
+
+playButton.addEventListener("click", () => {
+  playState ? pauseMusic() : playMusic();
+});
+
 music.addEventListener("ended", handleMusicEnded);
 music.addEventListener("timeupdate", handleMusicProgress);
 music.addEventListener("loadedmetadata", () => {
@@ -259,3 +264,13 @@ backwardButton.addEventListener("click", previousMusic);
 repeatButton.addEventListener("click", handleRepeat);
 heartButton.addEventListener("click", handleLikes);
 shuffleButton.addEventListener("click", handleShuffle);
+
+mainCard.addEventListener("mouseover", (event) => {
+  const xAxis = (window.innerWidth / 2 - event.pageX) / 15;
+  const yAxis = (window.innerHeight / 2 - event.pageY) / 15;
+  mainCard.style.transform = `rotateX(${yAxis}deg) rotateY(${xAxis}deg)`;
+});
+
+mainCard.addEventListener("mouseleave", (event) => {
+  mainCard.style.transform = "rotateX(0deg) rotateY(0deg)";
+});
