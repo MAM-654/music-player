@@ -53,7 +53,7 @@ const songs = [
   },
 ];
 
-//*-------------- fumction's section --------------*//
+//*-------------- function's section --------------*//
 
 function handleShuffle() {
   shuffleButton.style.color = shuffleState ? "#fbfbfbbb" : "#000000";
@@ -243,7 +243,7 @@ function removeLikes(element) {
   }
 }
 
-//*-------------- evenet's section --------------*//
+//*-------------- event's section --------------*//
 
 playButton.addEventListener("click", () => {
   playState ? pauseMusic() : playMusic();
